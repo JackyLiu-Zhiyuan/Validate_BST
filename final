@@ -1,0 +1,25 @@
+Validate BST
+
+
+class BST:
+    def __init__(self, value):
+        self.value = value
+        self.left = None
+        self.right = None
+
+
+def validateBst(tree):
+    current = tree
+    nodes = []
+    nodes.append((current,float("-inf"),float("inf")))
+    while len(nodes):
+        current, min, max = nodes.pop()
+        if current.value < min or current_val > max:
+            return False
+
+        if current.left:
+            nodes.append(current.left,min,current.value)
+        if current.right:
+            nodes.append(current.right, current.value, max)
+    return False
+
